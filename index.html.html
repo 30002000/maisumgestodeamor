@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>De Jhonata para Jeferson, com amor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Sacramento&family=Quicksand&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Quicksand', sans-serif;
+      background-color: #7e0a0a; /* Cor mais suave */
+      height: auto;  /* Altere de 100vh para auto */
+      overflow-y: scroll; /* Permite rolagem vertical */
+      color: white;
+    }
+
+    .container {
+      text-align: center;
+      padding: 40px 20px;
+      margin: 40px auto;
+      width: 90%;
+      max-width: 600px;
+    }
+
+    h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 40px;
+      color: #ffffff;
+      margin-bottom: 20px;
+      animation: slideIn 1s ease-in-out;
+    }
+
+    @keyframes slideIn {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(0); }
+    }
+
+    p {
+      font-family: 'Sacramento', cursive;
+      font-size: 20px;
+      color: #fff;
+      line-height: 1.5;
+    }
+
+    .carta {
+      font-size: 80px;
+      cursor: pointer;
+      margin: 30px auto;
+      animation: pulsar 1.5s infinite;
+    }
+
+    @keyframes pulsar {
+      0% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.2); opacity: 1; }
+      100% { transform: scale(1); opacity: 0.8; }
+    }
+
+    #dicaSenha {
+      display: none;
+      margin-top: 20px;
+      font-style: italic;
+      color: #ffeaea;
+      font-size: 18px;
+    }
+
+    .input-container {
+      margin-top: 30px;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    input[type="password"] {
+      padding: 10px;
+      border: 2px solid #ffffff;
+      border-radius: 10px;
+      font-size: 16px;
+      outline: none;
+      width: 80%;
+      max-width: 300px;
+      touch-action: manipulation;
+      -ms-touch-action: manipulation;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #fff;
+      color: #ff4d4d;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #ffeaea;
+    }
+
+    .message {
+      margin-top: 15px;
+      color: #fff7f7;
+      font-weight: bold;
+    }
+
+    .keyboard-container {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .key {
+      width: 40px;
+      height: 40px;
+      background-color: #fff0f0;
+      border: 2px solid #ffd1d1;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #cc1f1f;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: background-color 0.3s;
+    }
+
+    .key:hover {
+      background-color: #ffe6e6;
+    }
+
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 24px;
+      animation: float 6s linear infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+      100% { transform: translateY(-10vh) scale(1.2); opacity: 1; }
+    }
+
+    /* Cupido GIF */
+    #cupido {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+      width: 200px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="hearts" id="hearts-container"></div>
+
+<div class="container">
+  <h1>De Jhonata para Jeferson, com amor</h1>
+  <p>
+    Bem-vindo, meu amor. <br>
+    Este é o nosso cantinho secreto, feito com amor só pra você.<br>
+    É um abraço em forma de página, é tudo que sinto por você traduzido em carinho. <br>
+    Agora é só deixar o amor te guiar.
+  </p>
+
+  <!-- Carta pulsante -->
+  <span class="carta" onclick="mostrarDica()">💌</span>
+
+  <p>Abra a carta para ver a dica.</p>
+
+  <div id="dicaSenha">A chave está na lembrança do nosso primeiro 'sim'.</div>
+
+  <div class="input-container" id="senhaContainer">
+    <input type="password" id="senha" placeholder="Digite a senha aqui..." readonly>
+    <button onclick="verificarSenha()">Entrar</button>
+    <div class="message" id="mensagem"></div>
+    
+    <div class="keyboard-container" id="keyboard">
+      <div class="key" onclick="adicionarCaractere('1')">1</div>
+      <div class="key" onclick="adicionarCaractere('2')">2</div>
+      <div class="key" onclick="adicionarCaractere('3')">3</div>
+      <div class="key" onclick="adicionarCaractere('4')">4</div>
+      <div class="key" onclick="adicionarCaractere('5')">5</div>
+      <div class="key" onclick="adicionarCaractere('6')">6</div>
+      <div class="key" onclick="adicionarCaractere('7')">7</div>
+      <div class="key" onclick="adicionarCaractere('8')">8</div>
+      <div class="key" onclick="adicionarCaractere('9')">9</div>
+      <div class="key" onclick="adicionarCaractere('0')">0</div>
+      <div class="key" onclick="removerCaractere()">←</div>
+    </div>
+  </div>
+</div>
+
+<!-- Cupido GIF -->
+<img id="cupido" src="https://i.pinimg.com/originals/31/38/ea/3138eaae6e8ea4ae435b640c38054afd.gif">
+
+<script>
+  function mostrarDica() {
+    document.getElementById("dicaSenha").style.display = "block";
+    document.getElementById("senhaContainer").style.display = "flex";
+  }
+
+  function adicionarCaractere(caractere) {
+    const senhaInput = document.getElementById('senha');
+    senhaInput.value += caractere;
+  }
+
+  function removerCaractere() {
+    const senhaInput = document.getElementById('senha');
+    senhaInput.value = senhaInput.value.slice(0, -1);
+  }
+
+  function verificarSenha() {
+    const senha = document.getElementById('senha').value;
+    const mensagem = document.getElementById('mensagem');
+    if (senha === '080225') {
+      mensagem.innerText = "Senha correta! Abrindo o coração...";
+      mensagem.style.color = "#ffffff";
+      explodirCoracoes();
+
+      // Mostra o cupido
+      document.getElementById("cupido").style.display = "block";
+
+      setTimeout(() => {
+        window.location.href = "pagina1.html";
+      }, 2500);
+    } else {
+      mensagem.innerText = "Vai mais uma vez, prova que me ama.";
+      mensagem.style.color = "#fff";
+    }
+  }
+
+  function explodirCoracoes() {
+    for (let i = 0; i < 15; i++) {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.textContent = '🤍';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.top = Math.random() * 100 + 'vh';
+      heart.style.animation = 'none';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 2000);
+    }
+  }
+
+  const heartsContainer = document.getElementById('hearts-container');
+  for (let i = 0; i < 25; i++) {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.textContent = '🤍';
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+    heartsContainer.appendChild(heart);
+  }
+</script>
+
+</body>
+</html>
