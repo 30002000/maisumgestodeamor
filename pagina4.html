@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Para o amor da minha vida</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Montserrat:wght@400;700&family=Playfair+Display:ital,wght@1,700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      background-color: #8b1a1a; /* vermelho escuro suave */
+      font-family: 'Montserrat', sans-serif;
+      text-align: center;
+      padding: 20px;
+      color: #fff;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.4em;
+      margin-bottom: 8px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      color: #fff;
+      text-shadow: 0 0 8px #f48fb1;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-weight: 700;
+      font-size: 1.3em;
+      margin: 0 0 18px;
+      color: #fff;
+      text-shadow: 0 0 5px #f48fb1;
+      max-width: 320px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    p.subtitulo-final {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 400;
+      font-size: 1.1em;
+      color: #fff;
+      margin-bottom: 35px;
+      text-shadow: 0 0 4px #f48fb1;
+      max-width: 320px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    img.foto {
+      max-width: 90%;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #f48fb1;
+      margin-bottom: 22px;
+    }
+
+    .convite {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: 1.6em;
+      margin: 30px 0 14px;
+      color: #fff;
+      text-shadow: 0 0 6px #f48fb1;
+    }
+
+    .coracao-container {
+      margin: 10px auto 32px;
+      width: 130px;
+      cursor: pointer;
+      filter: drop-shadow(0 0 5px #f48fb1);
+      position: relative;
+    }
+
+    svg {
+      width: 100%;
+      height: auto;
+      fill: none;
+      stroke: #fff;
+      stroke-width: 2.2;
+      filter: drop-shadow(0 0 6px #f48fb1);
+      display: block;
+      margin: 0 auto;
+    }
+
+    #fill {
+      fill: #f48fb1;
+      transition: y 0.3s ease, height 0.3s ease, opacity 0.3s ease;
+      opacity: 0; /* invisível no início */
+    }
+
+    .mensagem {
+      display: none;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 1.4em;
+      margin-top: 28px;
+      color: #fff;
+      max-width: 320px;
+      margin-left: auto;
+      margin-right: auto;
+      text-shadow: 0 0 4px #f48fb1;
+    }
+
+    .gif-romantico img {
+      width: 270px;
+      border-radius: 0;
+      box-shadow: none;
+      margin-top: 15px;
+      filter: drop-shadow(0 0 8px #f48fb1);
+    }
+
+    .frase-final {
+      margin-top: 16px;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-weight: 700;
+      font-size: 1.3em;
+      color: #fff;
+      text-shadow: 0 0 6px #f48fb1;
+    }
+
+    .pulsando {
+      animation: pulse 1.1s infinite;
+      transform-origin: center;
+      filter: drop-shadow(0 0 12px #f48fb1);
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.15);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    button.proxima-pagina {
+      margin-top: 28px;
+      padding: 13px 26px;
+      background: linear-gradient(45deg, #f48fb1, #fff);
+      color: #8b1a1a;
+      border: none;
+      border-radius: 32px;
+      font-size: 1.3em;
+      cursor: pointer;
+      box-shadow: 0 0 12px #f48fb1;
+      font-family: 'Dancing Script', cursive;
+      transition: background 0.3s ease, color 0.3s ease;
+      user-select: none;
+    }
+
+    button.proxima-pagina:hover {
+      background: linear-gradient(45deg, #fff, #f48fb1);
+      color: #8b1a1a;
+    }
+  </style>
+</head>
+<body>
+  <h1>Meu amor, meu tudo</h1>
+  <h2>Nossos momentos juntos são únicos e especiais</h2>
+  <p class="subtitulo-final">Aqui estou eu, ao lado do meu maior presente: você.</p>
+
+  <img src="imagem1.png" alt="Foto Especial" class="foto" />
+
+  <div class="convite">Clique no coração e veja o meu amor se revelar…</div>
+
+  <div class="coracao-container" onclick="clicarCoracao()" id="container" aria-label="Coração para preencher o amor" role="button" tabindex="0" onkeydown="if(event.key==='Enter' || event.key===' ') clicarCoracao()">
+    <svg viewBox="0 0 100 100" id="svgCoracao" xmlns="http://www.w3.org/2000/svg" >
+      <defs>
+        <clipPath id="clip">
+          <path
+            d="M50 91s-1-.5-2.4-1.6C28 75 10 58.5 10 38.5 10 25 21 15 33.5 15 41 15 48 21 50 25c2-4 9-10 16.5-10C79 15 90 25 90 38.5c0 20-18 36.5-37.6 50-1.4 1.1-2.4 1.6-2.4 1.6z"
+          />
+        </clipPath>
+      </defs>
+      <rect
+        id="fill"
+        width="100"
+        height="0"
+        y="100"
+        clip-path="url(#clip)"
+      />
+      <path
+        d="M50 91s-1-.5-2.4-1.6C28 75 10 58.5 10 38.5 10 25 21 15 33.5 15 41 15 48 21 50 25c2-4 9-10 16.5-10C79 15 90 25 90 38.5c0 20-18 36.5-37.6 50-1.4 1.1-2.4 1.6-2.4 1.6z"
+        fill="none"
+        stroke="#fff"
+        stroke-width="2.2"
+      />
+    </svg>
+  </div>
+
+  <div class="mensagem" id="mensagem" role="alert" aria-live="polite">
+    <p></p>
+    <div class="gif-romantico">
+      <img
+        src="https://i.pinimg.com/originals/5c/0b/fa/5c0bfa6ed2ba6b857991b5065bfa2474.gif"
+        alt="Gif romântico"
+      />
+    </div>
+    <div class="frase-final">E só de te ver sorrir, eu já me sinto inteiro.</div>
+  </div>
+
+  <button class="proxima-pagina" onclick="window.location.href='pagina5.html'">
+    Próxima página ➡️
+  </button>
+
+  <script>
+    const fill = document.getElementById('fill');
+    const mensagem = document.getElementById('mensagem');
+    const maxSteps = 5;
+    let currentStep = 0;
+
+    function clicarCoracao() {
+      if (currentStep < maxSteps) {
+        currentStep++;
+        // Calcula a altura do preenchimento (altura total é 100)
+        // Dividido em 5 passos, cada um aumenta 20 na altura
+        let altura = (currentStep / maxSteps) * 100;
+        let y = 100 - altura;
+        fill.style.height = altura + '';
+        fill.setAttribute('height', altura);
+        fill.setAttribute('y', y);
+        fill.style.opacity = '1';
+        // Pulsar o coração só enquanto está preenchendo parcialmente
+        if (currentStep < maxSteps) {
+          fill.classList.add('pulsando');
+        } else {
+          fill.classList.remove('pulsando');
+          mensagem.style.display = 'block';
+        }
+      }
+    }
+
+    // Inicializa o coração só com borda, sem preenchimento visível
+    window.onload = () => {
+      fill.style.height = '0';
+      fill.setAttribute('height', '0');
+      fill.setAttribute('y', '100');
+      fill.style.opacity = '0';
+      fill.classList.remove('pulsando');
+      mensagem.style.display = 'none';
+    };
+  </script>
+</body>
+</html>

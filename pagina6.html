@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Para Jeferson</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      padding: 60px 20px;
+      background: #f9f7f3;
+      font-family: 'Quicksand', sans-serif;
+      color: #333;
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.85);
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      position: relative;
+    }
+
+    /* FOTO INICIAL */
+    #foto-inicial {
+      width: 220px;
+      height: 220px;
+      margin: 30px auto 0 auto; /* Ajustado para margem topo menor */
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(196, 68, 68, 0.5);
+      animation: fadeInUp 2.5s ease forwards;
+      opacity: 0;
+      position: relative;
+    }
+    #foto-inicial img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      animation: float 6s ease-in-out infinite;
+      display: block;
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 36px;
+      text-align: center;
+      margin-bottom: 30px;
+      color: #000;
+      text-shadow: 1px 1px 2px #fff;
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .img {
+      width: 70px;
+      margin: 20px auto;
+      display: block;
+      animation: float 6s ease-in-out infinite;
+      opacity: 0.8;
+    }
+
+    .final {
+      text-align: center;
+      margin-top: 40px;
+      font-family: 'Great Vibes', cursive;
+      font-size: 28px;
+      color: #111;
+    }
+
+    .fade-in {
+      animation: fadeIn 2s ease both;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* BOTÃO CORAÇÃO E FRASE "OUÇA NOSSA MÚSICA" */
+
+    .music-control {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin: 0 auto 15px auto;
+      max-width: 300px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .heart-button {
+      width: 40px;
+      height: 40px;
+      background: url('https://png.pngtree.com/png-vector/20220511/ourmid/pngtree-watercolor-brush-heart-aquarelle-watercolour-png-image_4578619.png') no-repeat center center;
+      background-size: contain;
+      border: none;
+      outline: none;
+      animation: pulse 1.5s infinite;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .heart-button.explode {
+      animation: explode 0.6s forwards;
+      pointer-events: none;
+    }
+
+    .music-text {
+      font-family: 'Great Vibes', cursive;
+      font-size: 1.2em;
+      color: #c44;
+      user-select: none;
+      white-space: nowrap;
+      text-shadow: 1px 1px 2px #fff;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.3);
+      }
+    }
+
+    @keyframes explode {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(3);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container fade-in">
+    <!-- CONTROLE DE MÚSICA -->
+    <div class="music-control" role="button" tabindex="0" aria-label="Ouça nossa música, clique para tocar">
+      <button class="heart-button" id="btnPlay" aria-pressed="false" aria-label="Tocar música"></button>
+      <div class="music-text">Ouça nossa música</div>
+    </div>
+
+    <!-- Foto inicial adicionada -->
+    <div id="foto-inicial">
+      <img src="imagem3.png" alt="Foto do casal" />
+    </div>
+
+    <h1>Obrigado por ter chegado até aqui!</h1>
+
+    <p>Quando tudo começou, eu não imaginava que estaríamos aqui hoje. Eu não imaginava que iria ter tantos momentos bons ao teu lado para eu lembrar e me fazer feliz no meu dia a dia...</p>
+
+    <a href="imagem1.html"><img class="img" src="decoracao1.png" alt="ilustração 1"></a>
+
+    <p>...mas, ao mesmo tempo, parte de mim sempre soube. Algo em você me chamou de uma forma carinhosa.</p>
+
+    <a href="imagem2.html"><img class="img" src="decoracao2.png" alt="ilustração 2"></a>
+
+    <p>Passamos por fases boas, outras nem tanto, e em todas elas, o que me manteve foi a certeza do sentimento que existe entre nós. Em mim, o sentimento mais lindo e puro que eu poderia sentir: todo amor que sinto por ti.</p>
+
+    <a href="imagem3.html"><img class="img" src="decoracao3.png" alt="ilustração 3"></a>
+
+    <p>Cada dia ao teu lado me mostra que amar é também crescer, aprender e escolher estar. É o que escolho todos os dias: te amar.</p>
+
+    <p>É você que eu quero ao meu lado para sempre. É você o meu amor, o amor da minha vida.</p>
+
+    <a href="imagem4.html"><img class="img" src="decoracao4.png" alt="ilustração 4"></a>
+
+    <p>Hoje, quando te olho, vejo muito mais que um namorado. Vejo um abrigo, alguém que eu admiro, desejo e quero ter por perto nos dias bons e ruins.</p>
+
+    <p>Quero viver o que a gente ainda nem sonhou. Quero manhãs ao teu lado, mais tardes de riso bobo, mais noites de colo e silêncio confortável.</p>
+
+    <a href="imagem5.html"><img class="img" src="decoracao5.png" alt="ilustração 5"></a>
+
+    <p>Quero continuar aprendendo a te amar do jeito que você precisa.</p>
+
+    <p>Te amo com tudo o que sou, com tudo o que já fui e com tudo o que ainda vou ser.</p>
+
+    <p>Eu te amo, Jeferson. Eu te amo muito! Nunca esqueça disso. Você é a felicidade que eu sempre quis encontrar.</p>
+
+    <a href="imagem6.html"><img class="img" src="decoracao6.png" alt="ilustração 6"></a>
+
+    <div class="final">Fica comigo por todos os dias que a vida permitir?</div>
+  </div>
+
+  <audio id="audio" src="Aindabem.mp3" preload="auto"></audio>
+
+  <script>
+    const btnPlay = document.getElementById('btnPlay');
+    const audio = document.getElementById('audio');
+
+    btnPlay.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play();
+        btnPlay.classList.add('explode');
+        btnPlay.setAttribute('aria-pressed', 'true');
+
+        // Depois da animação explode, esconder o botão
+        setTimeout(() => {
+          btnPlay.style.display = 'none';
+        }, 600);
+      }
+    });
+
+    // Permite ativar o botão pelo teclado (Enter ou Espaço)
+    document.querySelector('.music-control').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        btnPlay.click();
+      }
+    });
+  </script>
+</body>
+</html>

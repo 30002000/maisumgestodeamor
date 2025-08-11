@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Página 3 - Amor Puro</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Open Sans", sans-serif;
+        background: #f5f5dc; /* cor jornal/pergaminho */
+        color: #3b2f2f; /* marrom suave para texto */
+        text-align: center;
+        padding: 10px;
+        margin: 0;
+        animation: fadeIn 2s ease-in;
+      }
+
+      h1 {
+        font-family: "Great Vibes", cursive;
+        color: #5c4033;
+        font-size: 28px;
+        margin-bottom: 10px;
+      }
+
+      h2 {
+        font-family: "Pacifico", cursive;
+        color: #5c4033;
+        font-size: 20px;
+        margin-top: 20px;
+      }
+
+      .gif-container-column {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        margin-top: 20px;
+      }
+
+      .symbol-option {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        max-width: 90%;
+      }
+
+      .symbol-option img {
+        width: 90px;
+        cursor: pointer;
+        border: 3px solid transparent;
+        border-radius: 10px;
+        transition: 0.3s;
+      }
+
+      .symbol-option img.active {
+        border-color: #c19a6b;
+        box-shadow: 0 0 10px #c19a6b;
+      }
+
+      .symbol-option .message {
+        font-size: 14px;
+        color: #3b2f2f;
+        text-align: left;
+      }
+
+      .options {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .options button {
+        padding: 10px 20px;
+        background: linear-gradient(to right, #e6d8b3, #d8c49c);
+        border: none;
+        border-radius: 25px;
+        font-size: 15px;
+        font-weight: bold;
+        cursor: pointer;
+        color: #3b2f2f;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        transition: background 0.3s, transform 0.2s;
+      }
+
+      .options button:hover {
+        background: linear-gradient(to right, #d8c49c, #c9b283);
+        transform: scale(1.05);
+      }
+
+      .gif-feedback {
+        width: 80px;
+        margin: 10px auto;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      img[alt="Toca Discos"] {
+        width: 100px;
+        cursor: pointer;
+        margin-top: 20px;
+      }
+
+      .message {
+        margin-top: 10px;
+        font-size: 14px;
+        min-height: 30px;
+        padding: 0 10px;
+      }
+
+      .next-page {
+        margin-top: 30px;
+      }
+
+      .next-page a {
+        text-decoration: none;
+        background-color: #c19a6b;
+        color: white;
+        padding: 12px 25px;
+        border-radius: 30px;
+        font-weight: bold;
+        transition: background-color 0.3s;
+      }
+
+      .next-page a:hover {
+        background-color: #a67b5b;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @media (max-width: 480px) {
+        h1 {
+          font-size: 24px;
+        }
+
+        h2 {
+          font-size: 18px;
+        }
+
+        .options button {
+          font-size: 13px;
+          padding: 8px 14px;
+        }
+
+        .symbol-option {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .symbol-option .message {
+          text-align: center;
+        }
+      }
+
+      audio {
+        margin-top: 15px;
+      }
+
+      .dedication {
+        margin-top: 10px;
+        font-size: 16px;
+        color: #5c4033;
+        font-family: "Pacifico", cursive;
+        opacity: 0;
+        transition: opacity 1.5s ease-in;
+      }
+
+      .dedication.show {
+        opacity: 1;
+      }
+
+      .timer {
+        font-size: 14px;
+        color: #5c4033;
+        margin-top: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="music-section">
+      <h1>Ligue a música e sinta...</h1>
+      <p>
+        Clica no toca-discos... essa música é a trilha do meu coração desde que
+        você apareceu. Antes mesmo do nosso primeiro “sim”, ela já falava por
+        mim.
+      </p>
+      <img
+        src="https://cdn.pixabay.com/animation/2024/02/24/19/10/19-10-49-741_512.gif"
+        alt="Toca Discos"
+        onclick="playMusic()"
+      />
+      <audio id="audio-player" src="Amorpuro.mp3.mp3"></audio>
+      <p class="dedication" id="dedication-text">
+        Te adoro em tudo, Jeferson. Você é o amor da minha vida.
+      </p>
+      <div class="timer" id="timer" style="display: none">00s</div>
+    </div>
+
+    <div id="quiz-section" class="hidden">
+      <h2>Complete a Frase</h2>
+
+      <div class="question">
+        <p id="q1">“Você não foi só o primeiro... foi o meu primeiro _____.”</p>
+        <div class="options">
+          <button onclick="checkAnswer('q1', this, 'amor', 'gif1')">passo</button>
+          <button onclick="checkAnswer('q1', this, 'amor', 'gif1')">amor</button>
+          <button onclick="checkAnswer('q1', this, 'amor', 'gif1')">acaso</button>
+        </div>
+        <div class="message" id="msg-q1"></div>
+        <img
+          id="gif1"
+          class="gif-feedback hidden"
+          src="https://i.pinimg.com/originals/c5/c6/73/c5c673dc3cb4ebd03675713b984a25cd.gif"
+          alt="GIF 1"
+        />
+      </div>
+
+      <div class="question">
+        <p id="q2">“Teu toque acende em mim uma chama que _____.”</p>
+        <div class="options">
+          <button onclick="checkAnswer('q2', this, 'nunca cessa', 'gif2')">apaga</button>
+          <button onclick="checkAnswer('q2', this, 'nunca cessa', 'gif2')">nunca cessa</button>
+          <button onclick="checkAnswer('q2', this, 'nunca cessa', 'gif2')">hesita</button>
+        </div>
+        <div class="message" id="msg-q2"></div>
+        <img
+          id="gif2"
+          class="gif-feedback hidden"
+          src="https://i.pinimg.com/originals/4e/c5/7f/4ec57f0a9c32b5cc3d539a7a20e29304.gif"
+          alt="GIF 2"
+        />
+      </div>
+
+      <div class="question">
+        <p id="q3">“Seu sorriso tem o dom de _____ o meu mundo.”</p>
+        <div class="options">
+          <button onclick="checkAnswer('q3', this, 'iluminar', 'gif3')">silenciar</button>
+          <button onclick="checkAnswer('q3', this, 'iluminar', 'gif3')">iluminar</button>
+          <button onclick="checkAnswer('q3', this, 'iluminar', 'gif3')">confundir</button>
+        </div>
+        <div class="message" id="msg-q3"></div>
+        <img
+          id="gif3"
+          class="gif-feedback hidden"
+          src="https://cdn.pixabay.com/animation/2022/10/27/12/57/12-57-22-874_512.gif"
+          alt="GIF 3"
+        />
+      </div>
+    </div>
+
+    <div id="symbol-section" class="hidden">
+      <h2>Escolha Simbólica</h2>
+      <p>Agora veja, isso representa um pouco do que sinto por você:</p>
+      <div class="gif-container-column">
+        <div class="symbol-option">
+          <img
+            src="https://i.pinimg.com/originals/d3/04/6e/d3046e32d5289094d6843ae93f951ece.gif"
+            alt="Coração"
+            onclick="showSymbol(this, 'heart')"
+          />
+          <div class="message" id="msg-heart"></div>
+        </div>
+        <div class="symbol-option">
+          <img
+            src="https://i.pinimg.com/originals/2d/41/38/2d4138c7c24d21b9d17f66a54ee7ea03.gif"
+            alt="Abraço"
+            onclick="showSymbol(this, 'hug')"
+          />
+          <div class="message" id="msg-hug"></div>
+        </div>
+        <div class="symbol-option">
+          <img
+            src="https://i.pinimg.com/originals/5c/71/2c/5c712c9fc3f17b1735a36b8ec65996ba.gif"
+            alt="Beijo"
+            onclick="showSymbol(this, 'kiss')"
+          />
+          <div class="message" id="msg-kiss"></div>
+        </div>
+      </div>
+
+      <div class="next-page">
+        <a href="pagina4.html">Próxima Página →</a>
+      </div>
+    </div>
+
+    <script>
+      let timerInterval;
+
+      function playMusic() {
+        const player = document.getElementById("audio-player");
+        const dedication = document.getElementById("dedication-text");
+        const timer = document.getElementById("timer");
+
+        player.play();
+        document.getElementById("quiz-section").classList.remove("hidden");
+
+        // Mostrar a frase com transição
+        dedication.classList.add("show");
+
+        // Mostrar e iniciar o contador
+        timer.style.display = "block";
+        let seconds = 0;
+        timer.textContent = `${seconds}s`;
+
+        clearInterval(timerInterval);
+        timerInterval = setInterval(() => {
+          seconds++;
+          timer.textContent = `${seconds}s`;
+          if (seconds >= 60) {
+            clearInterval(timerInterval);
+          }
+        }, 1000);
+      }
+
+      function checkAnswer(questionId, button, correctAnswer, gifId) {
+        const msgBox = document.getElementById("msg-" + questionId);
+        const answer = button.textContent.trim();
+        if (answer === correctAnswer) {
+          msgBox.innerText = document
+            .getElementById(questionId)
+            .innerText.replace("_____", correctAnswer);
+          msgBox.style.color = "#90ee90";
+          const gif = document.getElementById(gifId);
+          gif.classList.remove("hidden");
+          setTimeout(() => {
+            gif.classList.add("hidden");
+            if (questionId === "q3") {
+              document.getElementById("symbol-section").classList.remove("hidden");
+            }
+          }, 2000);
+        } else {
+          msgBox.innerText = "Tente outra vez 💭";
+          msgBox.style.color = "#ffcccb";
+        }
+      }
+
+      function showSymbol(imgElement, type) {
+        document.querySelectorAll(".symbol-option img").forEach((img) =>
+          img.classList.remove("active")
+        );
+        imgElement.classList.add("active");
+
+        const messages = {
+          heart: "Meu coração aprendeu a pulsar em outro ritmo: o teu.",
+          hug: "Teu abraço é o lugar onde o mundo para e eu descanso.",
+          kiss: "Quando você me beija, tudo dentro de mim sorrir.",
+        };
+
+        document.getElementById("msg-heart").innerText = "";
+        document.getElementById("msg-hug").innerText = "";
+        document.getElementById("msg-kiss").innerText = "";
+
+        document.getElementById("msg-" + type).innerText = messages[type];
+      }
+    </script>
+  </body

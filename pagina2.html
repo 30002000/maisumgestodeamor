@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Esta carta tem uma mensagem especial para você!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f5f1e9; /* branco creme jornal */
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 5vh 5vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      box-sizing: border-box;
+      text-align: justify;
+      color: #4a3c31; /* marrom escuro */
+    }
+
+    h1 {
+      font-size: 6vw;
+      color: #4a3c31;
+      margin-bottom: 2vh;
+      text-align: center;
+      font-family: 'Dancing Script', cursive;
+    }
+
+    .mensagem {
+      font-size: 4vw;
+      margin-bottom: 4vh;
+      text-align: center;
+      color: #4a3c31;
+      font-weight: 600;
+    }
+
+    .cartas {
+      display: flex;
+      gap: 5vw;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 4vh;
+    }
+
+    .carta-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 30vw;
+    }
+
+    .carta {
+      width: 100%;
+      max-width: 120px;
+      height: auto;
+      cursor: pointer;
+      animation: flutuar 2s ease-in-out infinite;
+      transition: transform 0.3s ease;
+    }
+
+    .numero {
+      margin-top: 1vh;
+      font-size: 3.5vw;
+      font-weight: bold;
+      color: #7a6550;
+    }
+
+    @keyframes flutuar {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    #urso {
+      width: 40vw;
+      max-width: 180px;
+      display: none;
+      margin-top: 4vh;
+    }
+
+    #poema {
+      max-width: 90vw;
+      font-family: 'Dancing Script', cursive;
+      font-size: 5vw;
+      color: #4a3c31;
+      margin-top: 4vh;
+      white-space: normal;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .estrophe-block {
+      display: none;
+      gap: 15px;
+      align-items: center;
+      /* para alternar o layout, as imagens ficam ao lado do texto */
+    }
+
+    /* Alterna posição imagem/texto: ímpar texto à esquerda, par texto à direita */
+    .estrophe-block:nth-child(odd) {
+      flex-direction: row;
+    }
+
+    .estrophe-block:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .estrophe-block img {
+      max-width: 150px;
+      width: 30%;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(74, 60, 49, 0.3);
+    }
+
+    .estrophe-block p {
+      width: 70%;
+      font-size: 4vw;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .mensagem-erro {
+      color: #bb4d4d;
+      font-size: 4vw;
+      margin-top: 3vh;
+      display: none;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .botao-proxima {
+      display: none;
+      margin-top: 4vh;
+      padding: 12px 24px;
+      background-color: #7a6550;
+      color: #f5f1e9;
+      border: none;
+      border-radius: 6px;
+      font-size: 4vw;
+      cursor: pointer;
+      box-shadow: 2px 2px 6px rgba(74, 60, 49, 0.6);
+      transition: background-color 0.3s ease;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .botao-proxima:hover {
+      background-color: #5b4e3d;
+    }
+
+    #gif-transicao {
+      display: none;
+      max-width: 80vw;
+      margin-top: 4vh;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(74, 60, 49, 0.5);
+    }
+
+    @media (min-width: 768px) {
+      h1 { font-size: 32px; }
+      .mensagem { font-size: 18px; }
+      .numero { font-size: 16px; }
+      #poema { font-size: 24px; }
+      .estrophe-block p { font-size: 18px; }
+      .botao-proxima { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Esta carta tem uma mensagem especial para você!</h1>
+  <div class="mensagem">Clique na carta correta, numerada com aquele número que te pedi para guardar...</div>
+
+  <div class="cartas">
+    <div class="carta-container">
+      <img class="carta" src="https://i.pinimg.com/originals/e3/be/c9/e3bec93a665147eee7c50542e96739ec.gif" alt="Carta 1" onclick="iniciarSurpresa()">
+      <div class="numero">1089</div>
+    </div>
+    <div class="carta-container">
+      <img class="carta" src="https://cdn.pixabay.com/animation/2025/01/08/23/27/23-27-02-953_512.gif" alt="Carta 2" onclick="mostrarErro()">
+      <div class="numero">502</div>
+    </div>
+    <div class="carta-container">
+      <img class="carta" src="https://media3.giphy.com/media/OzQZEnGwFTuYxBKsAC/giphy.gif" alt="Carta 3" onclick="mostrarErro()">
+      <div class="numero">399</div>
+    </div>
+  </div>
+
+  <div class="mensagem-erro">Não foi esse o número que te pedi para guardar.</div>
+
+  <img id="urso" src="https://i.pinimg.com/originals/8f/ec/fc/8fecfcd8839c17ea3e61a34b40d2ee32.gif" alt="Urso lançando coração">
+
+  <div id="poema">
+    <div class="estrophe-block">
+      <img src="amor1.png" alt="Amor 1">
+      <p>Você se lembra do número que te pedi para guardar? Pois é... era só uma desculpa pra te trazer até aqui. 😅</p>
+    </div>
+
+    <div class="estrophe-block">
+      <img src="amor2.png" alt="Amor 2">
+      <p>A verdade é que eu só queria mais uma chance de te surpreender. E de te dizer, de um jeito simples e sincero, o quanto você é especial pra mim.</p>
+    </div>
+
+    <div class="estrophe-block">
+      <img src="amor3.png" alt="Amor 3">
+      <p>Às vezes, as palavras parecem pequenas diante do que eu sinto. Mas se tem algo que eu sei com certeza, é que desde que você chegou, muita coisa em mim mudou. Meu riso ficou mais solto, meus dias mais leves... e meu coração mais cheio.</p>
+    </div>
+
+    <div class="estrophe-block">
+      <img src="amor4.png" alt="Amor 4">
+      <p>Não tem código secreto ou carta mágica capaz de traduzir tudo isso. Só sei que, se eu pudesse escolher alguém pra guardar dentro do peito, seria você, de novo e de novo.</p>
+    </div>
+  </div>
+
+  <button class="botao-proxima" onclick="mostrarGifTransicao()">Ir para a próxima página</button>
+  <img id="gif-transicao" src="https://i.pinimg.com/originals/5f/d3/31/5fd331c3c5ae5d50449817722f0632ac.gif" alt="Transição">
+
+  <script>
+    let index = 0;
+
+    function digitarTexto() {
+      const poema = document.getElementById("poema");
+      const blocks = poema.querySelectorAll(".estrophe-block");
+      
+      if (index < blocks.length) {
+        blocks[index].style.display = "flex";
+        index++;
+        setTimeout(digitarTexto, 2000); // 2 segundos entre blocos
+      } else {
+        document.querySelector(".botao-proxima").style.display = "inline-block";
+      }
+    }
+
+    function iniciarSurpresa() {
+      document.querySelector(".mensagem-erro").style.display = "none";
+      document.querySelector(".cartas").style.display = "none";
+
+      const urso = document.getElementById("urso");
+      const poema = document.getElementById("poema");
+
+      urso.style.display = "block";
+      setTimeout(() => {
+        urso.style.display = "none";
+        poema.style.display = "flex";
+        index = 0;
+        digitarTexto();
+      }, 1500);
+    }
+
+    function mostrarErro() {
+      document.getElementById("urso").style.display = "none";
+      document.getElementById("poema").style.display = "none";
+      document.querySelector(".mensagem-erro").style.display = "block";
+    }
+
+    function mostrarGifTransicao() {
+      document.querySelector(".botao-proxima").style.display = "none";
+      document.getElementById("poema").style.display = "none";
+
+      const gif = document.getElementById("gif-transicao");
+      gif.style.display = "block";
+
+      setTimeout(() => {
+        window.location.href = "pagina3.html"; // Ajuste o nome da próxima página se quiser
+      }, 4000);
+    }
+  </script>
+
+</body>
+</html>

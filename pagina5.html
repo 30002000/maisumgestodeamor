@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Minha Felicidade</title>
+
+  <!-- Fontes românticas e estilosas -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@600&family=Parisienne&family=Pacifico&family=Amatic+SC:wght@700&family=Courgette&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #8b1a1a;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+
+    #intro-text {
+      font-style: italic;
+      font-size: 1.2em;
+      margin-top: -10px;
+      margin-bottom: 30px;
+      color: #f48fb1;
+      font-family: 'Courgette', cursive;
+    }
+
+    #letra {
+      font-size: 1.8em;
+      margin: 40px 20px;
+      min-height: 80px;
+      line-height: 1.4;
+      font-weight: 600;
+      position: relative;
+      overflow: hidden;
+      transition: opacity 0.5s ease;
+      font-family: 'Pacifico', cursive; /* Fonte fixa para evitar bug */
+    }
+
+    /* Animações para os versos */
+    .fade-in {
+      animation: fadeIn 1s forwards;
+    }
+
+    .slide-in {
+      animation: slideIn 1s forwards;
+    }
+
+    .zoom-in {
+      animation: zoomIn 1s forwards;
+    }
+
+    .rotate-in {
+      animation: rotateIn 1s forwards;
+    }
+
+    .bounce-in {
+      animation: bounceIn 1s forwards;
+    }
+
+    /* Animações CSS */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.5); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes rotateIn {
+      from { transform: rotate(-180deg); opacity: 0; }
+      to { transform: rotate(0); opacity: 1; }
+    }
+
+    @keyframes bounceIn {
+      0% { transform: scale(0.5); opacity: 0; }
+      60% { transform: scale(1.2); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes fadeInPhoto {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    #foto-final {
+      display: none;
+      margin-top: 40px;
+      animation: fadeInPhoto 2s ease-out forwards;
+    }
+
+    #foto-final.show {
+      display: block;
+    }
+
+    #foto-final img {
+      max-width: 90%;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #f48fb1;
+    }
+
+    #frase-final {
+      margin-top: 15px;
+      font-style: italic;
+      font-weight: 700;
+      font-size: 1.3em;
+      color: #fff;
+      text-shadow: 0 0 6px #f48fb1;
+      max-width: 320px;
+      margin-left: auto;
+      margin-right: auto;
+      opacity: 0;
+      animation: fadeIn 2s ease 0.5s forwards;
+    }
+
+    button {
+      background: linear-gradient(45deg, #f48fb1, #fff);
+      border: none;
+      border-radius: 32px;
+      padding: 14px 28px;
+      font-size: 1.3em;
+      color: #8b1a1a;
+      cursor: pointer;
+      box-shadow: 0 0 12px #f48fb1;
+      font-family: 'Dancing Script', cursive;
+      user-select: none;
+      margin-top: 20px;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    button:hover {
+      background: linear-gradient(45deg, #fff, #f48fb1);
+      color: #8b1a1a;
+    }
+
+    /* Estilo específico para o botão Próxima página */
+    #btnProxima {
+      display: none;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Minha Felicidade</h1>
+  <p id="intro-text">A nossa história merece ser cantada em cada verso.</p>
+
+  <audio id="audio" src="Felicidade.mp3"></audio>
+
+  <div id="letra" aria-live="polite" aria-atomic="true"></div>
+
+  <button id="btnTocar" aria-label="Tocar a música Minha Felicidade">Ouvir a música</button>
+
+  <div id="foto-final" aria-live="polite">
+    <img src="imagem2.png" alt="Foto especial do casal" />
+    <div id="frase-final">"Com você, encontrei minha verdadeira felicidade."</div>
+  </div>
+
+  <button id="btnProxima" aria-label="Ir para a próxima página">Próxima página</button>
+
+  <script>
+    const frases = [
+      { tempoIni: 0, tempoFim: 3, texto: "Lembra aquele tempo, amor?", anim: "fade-in" },
+      { tempoIni: 3, tempoFim: 8, texto: "Onde a gente se encontrou…", anim: "slide-in" },
+      { tempoIni: 8, tempoFim: 11, texto: "Foi ali que começou", anim: "zoom-in" },
+      { tempoIni: 11, tempoFim: 15, texto: "MINHA FELICIDADE", anim: "bounce-in" },
+      { tempoIni: 15, tempoFim: 19, texto: "Lembra aquele beijo, amor?", anim: "rotate-in" },
+      { tempoIni: 19, tempoFim: 23, texto: "Quando a gente se encontrou…", anim: "slide-in" },
+      { tempoIni: 23, tempoFim: 27, texto: "Foi assim que começou", anim: "zoom-in" },
+      { tempoIni: 27, tempoFim: 30, texto: "MINHA FELICIDADE.", anim: "fade-in" }
+    ];
+
+    const letraDiv = document.getElementById('letra');
+    const audio = document.getElementById('audio');
+    const btn = document.getElementById('btnTocar');
+    const fotoFinal = document.getElementById('foto-final');
+    const fraseFinal = document.getElementById('frase-final');
+    const btnProxima = document.getElementById('btnProxima');
+
+    btnProxima.addEventListener('click', () => {
+      window.location.href = 'pagina6.html';
+    });
+
+    btn.addEventListener('click', () => {
+      btn.disabled = true;
+      audio.currentTime = 0;
+      audio.play();
+      letraDiv.textContent = '';
+      fotoFinal.classList.remove('show');
+      fraseFinal.style.opacity = 0;
+      btn.textContent = 'Tocando...';
+
+      btnProxima.style.display = 'none'; // Esconde o botão no início
+
+      let ultimaFrase = '';
+
+      const interval = setInterval(() => {
+        let currentTime = audio.currentTime;
+
+        let fraseAtual = frases.find(f => currentTime >= f.tempoIni && currentTime < f.tempoFim);
+
+        if (fraseAtual && fraseAtual.texto !== ultimaFrase) {
+          ultimaFrase = fraseAtual.texto;
+          letraDiv.textContent = fraseAtual.texto;
+
+          letraDiv.className = '';
+          void letraDiv.offsetWidth; // reinicia animação
+          letraDiv.classList.add(fraseAtual.anim);
+        }
+
+        if (audio.ended) {
+          clearInterval(interval);
+          letraDiv.textContent = '';
+          letraDiv.className = '';
+          fotoFinal.classList.add('show');
+          fraseFinal.style.opacity = 1;
+          btn.disabled = false;
+          btn.textContent = 'Ouvir de novo';
+          btn.focus();
+          btnProxima.style.display = 'inline-block'; // Mostra o botão no final
+        }
+      }, 200);
+    });
+  </script>
+</body>
+</html>
